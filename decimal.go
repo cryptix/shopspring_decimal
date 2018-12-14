@@ -25,6 +25,8 @@ import (
 	"math/big"
 	"strconv"
 	"strings"
+
+	"github.com/jinzhu/gorm"
 )
 
 // DivisionPrecision is the number of decimal places in the result when it
@@ -1432,3 +1434,8 @@ func (d Decimal) satan() Decimal {
   	}
   	return y
   }
+
+// 1hack
+func (d Decimal) GormDataType(_ gorm.Dialect) string {
+	return "varchar(50)"
+}
